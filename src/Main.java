@@ -25,36 +25,64 @@ public class Main {
 
             switch (choice) {
 
-                case 1:
-                    // TODO: Read input and add Book
-                    break;
+                case 1 -> {
+                    System.out.println("Enter the title : ");
+                    String title = scanner.nextLine();
 
-                case 2:
-                    // TODO: Read input and add EBook
-                    break;
+                    System.out.println("Enter the author : ");
+                    String author = scanner.nextLine();
 
-                case 3:
+                    System.out.println("Enter the year : ");
+                    while(!scanner.hasNext()) {
+                        System.out.println("Invalid year brooo");
+                        scanner.next();
+                    }
+                    int year = scanner.nextInt();
+                    scanner.nextLine();
+
+                    library.addBook(title , author , year);
+                    break;
+                }
+                case 2 -> {
+                    System.out.println("Enter the E-Book title : ");
+                    String title = scanner.nextLine();
+
+                    System.out.println("Enter the E-Book author : ");
+                    String author = scanner.nextLine();
+
+                    System.out.println("Enter the E-Book year : ");
+                    int year = scanner.nextInt();
+
+                    System.out.println("Enter the E-Book fileSize : ");
+                    Double fileSize = scanner.nextDouble();
+
+                    library.addBook(title , author , year , fileSize);
+                    break;
+                }
+                case 3 -> {
                     library.displayBooks();
                     break;
+                }
 
-                case 4:
+                case 4 -> {
                     // TODO: Search book
                     break;
-
-                case 5:
+                }
+                case 5 -> {
                     // TODO: Borrow book
                     break;
-
-                case 6:
+                }
+                case 6 -> {
                     // TODO: Return book
                     break;
-
-                case 7:
+                }
+                case 7 -> {
                     System.out.println("Goodbye!");
                     break;
-
-                default:
+                }
+                default -> {
                     System.out.println("Invalid option!");
+                }
             }
 
         } while (choice != 7);
