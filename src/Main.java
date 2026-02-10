@@ -26,13 +26,13 @@ public class Main {
             switch (choice) {
 
                 case 1 -> {
-                    System.out.println("Enter the title : ");
+                    System.out.print("Enter the title : ");
                     String title = scanner.nextLine();
 
-                    System.out.println("Enter the author : ");
+                    System.out.print("Enter the author : ");
                     String author = scanner.nextLine();
 
-                    System.out.println("Enter the year : ");
+                    System.out.print("Enter the year : ");
                     while(!scanner.hasNext()) {
                         System.out.println("Invalid year brooo");
                         scanner.next();
@@ -65,19 +65,32 @@ public class Main {
                 }
 
                 case 4 -> {
-                    // TODO: Search book
+                    System.out.print("Enter the title of book ; ");
+                    String title = scanner.nextLine();
+                    Book found = library.searchByTitle(title);
+                    if(!found.isAvailable()) {
+                        System.out.println("Book not found");
+                    }
+                    else {
+                        System.out.println("The book : " + found);
+                    }
+
                     break;
                 }
                 case 5 -> {
-                    // TODO: Borrow book
+                    System.out.println("Enter the borrow book");
+                    String title = scanner.nextLine();
+                    library.borrowBook(title);
                     break;
                 }
                 case 6 -> {
-                    // TODO: Return book
+                    System.out.println("Enter the book for return : ");
+                    String title = scanner.nextLine();
+                    library.returnBook(title);
                     break;
                 }
                 case 7 -> {
-                    System.out.println("Goodbye!");
+                    System.out.println("Goodbye! Thanks for using our library");
                     break;
                 }
                 default -> {

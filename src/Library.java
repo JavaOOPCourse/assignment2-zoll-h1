@@ -26,7 +26,7 @@ public class Library {
         }
         System.out.println("\n--- Library Books ---");
         for (int i = 0; i < count; i++) {
-            System.out.println((i + 1) + ". " + books[i]);
+            System.out.println((i + 1) + "\n. " + books[i]);
         }
     }
     // TODO: Search book by title
